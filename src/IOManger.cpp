@@ -14,6 +14,7 @@ bool loadMesh(const std::string& _filename, PolyMesh* mesh)
 	return loadMesh(_filename, mesh, opt);
 }
 
+
 bool loadMesh(const std::string& _filename, PolyMesh* mesh, IOOptions& opt)
 {
     OBJReader* reader_obj = new OBJReader();

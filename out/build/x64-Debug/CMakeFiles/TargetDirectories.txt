@@ -1,0 +1,4 @@
+D:/codes/geometry-process/out/build/x64-Debug/CMakeFiles/ACAM_mesh.dir
+D:/codes/geometry-process/out/build/x64-Debug/CMakeFiles/dj.dir
+D:/codes/geometry-process/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+D:/codes/geometry-process/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

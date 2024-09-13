@@ -40,9 +40,15 @@ bool loadMesh(const std::string& _filename, PolyMesh *mesh);
 
 bool loadMesh(const std::string& _filename, PolyMesh *mesh, IOOptions& opt);
 
+
 bool writeMesh(const std::string& _filename, PolyMesh* mesh);
 
+
 bool writeMesh(const std::string& _filename, PolyMesh* mesh, IOOptions& opt);
+
+
+
+
 
 
 class OBJReader

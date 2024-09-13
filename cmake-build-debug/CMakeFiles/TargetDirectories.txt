@@ -1,0 +1,4 @@
+D:/codes/geometry-process/cmake-build-debug/CMakeFiles/ACAM_mesh.dir
+D:/codes/geometry-process/cmake-build-debug/CMakeFiles/dj.dir
+D:/codes/geometry-process/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/codes/geometry-process/cmake-build-debug/CMakeFiles/rebuild_cache.dir
