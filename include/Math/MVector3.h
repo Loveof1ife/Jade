@@ -143,6 +143,11 @@ namespace acamcad {
         return a.x() * b.x() + a.y() * b.y() + a.z() * b.z();
     }
 
+    inline double dot(const MVector3& a, const MPoint3& b)
+    {
+        return a.x() * b.x() + a.y() * b.y() + a.z() * b.z();
+    }
+
     inline double norm(const MVector3& v) { return sqrt(dot(v, v)); }
 
     inline double normSq(const MVector3& v) { return dot(v, v); }

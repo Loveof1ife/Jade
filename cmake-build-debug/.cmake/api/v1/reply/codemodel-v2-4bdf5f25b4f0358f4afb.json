@@ -1,0 +1,96 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "geom_proc",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ACAM_mesh::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ACAM_mesh-Debug-e302eba1f781b2c08d96.json",
+					"name" : "ACAM_mesh",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "curvature::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-curvature-Debug-9633174086ecade16b06.json",
+					"name" : "curvature",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dj::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dj-Debug-6157d137b9a72c0ba39a.json",
+					"name" : "dj",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "filter::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filter-Debug-2ef5a1ebf928a45913fc.json",
+					"name" : "filter",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "parametrization::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-parametrization-Debug-e1c0f4379adc43bcdc10.json",
+					"name" : "parametrization",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/codes/geometry-process/cmake-build-debug",
+		"source" : "D:/codes/geometry-process"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

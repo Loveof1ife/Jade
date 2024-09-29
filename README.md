@@ -122,9 +122,9 @@ Vpath.push(ep)
      end
      ```
 
-    2. **Compute the Minimum Spanning Tree**:
-    - Initialize the spanning tree.
-    - While there are still vertices to process, extract the top element of the `complete_graph` and add the edge to the MST if it does not form a cycle.
+2. **Compute the Minimum Spanning Tree**:
+   - Initialize the spanning tree.
+   - While there are still vertices to process, extract the top element of the `complete_graph` and add the edge to the MST if it does not form a cycle.
 
 
     ```pseudo
@@ -156,3 +156,56 @@ Vpath.push(ep)
 
 ---
 
+## Algorithm 3: Curvature
+### Problem Description:
+
+- **vertexLocalAveRegion**: computes the average region for each vertex based on the areas of the adjacent faces. If an obtuse triangle exists, the area is divided accordingly to its vertices.
+- **mean curvature**: calculates the mean curvature for each vertex using the Laplace-Beltrami operator. The cotangent of angles between edges in the vertex's 1-ring neighborhood is used in the calculation.
+- **Gaussian curvature**: The angular deficit, which is the difference between 2π and the sum of angles at a vertex, is divided by the average area associated with the vertex to determine the Gaussian curvature.
+
+## Algorithm 4: Filter
+
+### Problem Description:
+
+
+- **M**: The input 3D mesh with faces and vertices.
+- **σ**: Parameter controlling the influence of spatial proximity (distance between neighboring faces).
+- **ω**: Parameter controlling the influence of normal similarity (difference between normals of neighboring faces).
+- **normal_iter**: Number of iterations to perform for normal smoothing.
+- **vertex_iter**: Number of iterations to perform for updating vertex positions.
+
+### Outputs:
+
+- **normal field**
+- **updated vertex**
+
+### Process:
+
+1. **Initialization of Normals**:
+   - The normals of the mesh faces are initialized based on the original face normals.
+
+2. **Bilateral Filtering on raw Normals**:
+   - For each face in the mesh, its normal is updated using the normals of its neighboring faces, weighted by both the spatial distance between face centers and the normal differences.
+
+3. **Vertex Position Update based on filterd normals**:
+   - After filtering the normals, the positions of the vertices are adjusted based on the smoothed normals of the neighboring faces, iteratively updating the vertex positions(Gauss-Seidel iteration per vertex per iteration , other vertex fixed).
+
+4. **Iterative Process**:
+   - The algorithm iteratively refines the normals for a specified number of iterations (`normal_iter`).
+   - Update vertex positions one by one, Fixed the positions of the remaining vertices. The reason for this is to make the loss function a quadratic function of one variable
+     $$
+     x_{\text{new}, i}= x_i + \sum_s{j \in \text{neighborhood}(x_i)} n_j \cdot( n_j^T (c_j - x_i))
+     $$
+
+
+## Algorithm 5: Tuttes's Embedding
+Given a triangulated surface homeomorphic to a disk, if the(u,v)coordinates at the boundary vertices lie on a convex polygon inorder, and if the coordinates of the internal vertices are a convex combination of their neighbors, then the (u, v) coordinates form a valid parameterization (without self-intersections, bijective)
+
+### Problem Description:
+
+- **boundary**: Artificially put the boundary point UV On a convex polygon
+- **interior**: Uniform laplacian, Linear system
+
+### Process:
+1. Read into a grid, identify the boundaries, place them in order on a polygon (bisected N bisected circles),
+2. The inner points are convex combinations in it's one-ring, N points with N equations
