@@ -17,7 +17,7 @@ namespace polymesh {
 //=====================================================================
 // Traverse Method
 //=====================================================================
-	std::vector<MVert*> PolyMesh::boundaryVertices() const
+	std::vector<MVert*> PolyMesh::boundaryVertices()
 	{
 		std::vector< std::vector<MVert*> > boundaries;
 		for (MHalfedge* he : half_edges_)

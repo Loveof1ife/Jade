@@ -13,10 +13,9 @@ int main(int argc, char** argv) {
         return 0;
     }
     std::string mesh_path = argv[1];
-    auto mesh {std::make_shared<PolyMesh> () } ;
-    loadMesh(mesh_path, mesh.get());
+    Jade::Param::Parameterizer parameterizer(mesh_path);
 
-    auto para_mesh = Jade::Param::Tutte_Embedding(mesh);
+    parameterizer.TutteEmbedding();
 
     std::cout<<"Finish Parameterization "<<std::endl;
 }

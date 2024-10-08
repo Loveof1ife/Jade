@@ -78,7 +78,7 @@ public:
 // Traverse Method
 //=====================================================================
 	/// return the mesh one boundary vertices in order, the mesh may have many boundary , This function only search one boundary;
-	std::vector<MVert*> boundaryVertices() const;
+	std::vector<MVert*> boundaryVertices() ;
 	/// return all boundary vertices, every one is in order;
 	//std::vector<std::vector<MVert*>> boundaryVerticesAll();
 

@@ -49,16 +49,19 @@ endfunction()
 #add digital geometry process exe
 ############################################################
 # Dijk_Prim executable
-add_dgp_executable(dj src/Dijk_Prim)
+add_dgp_executable(dj src/dijk-prim)
 
 # Curvature executable
 add_dgp_executable(curvature src/Curvature)
 
 # Filter executable
-add_dgp_executable(filter src/Mesh-Filter)
+add_dgp_executable(filter src/mesh-filter)
 
-#
+#Tutte's embedding
 add_dgp_executable(parametrization src/Parametrization)
+
+#rigid modeling
+add_dgp_executable(deformation src/Deformation)
 
 
 

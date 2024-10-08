@@ -4,11 +4,12 @@
 
 ## Introduction
 
-This project focuses on discrete geometry processing algorithms，based on the USTC Digital Geometry Processing course and Games102。
-
+This project centers on  discrete geometry processing algorithms，drawing on:
+-  **Digital Geometry Processing USTC** course
+-  **Games102** course
+-  **Polygon Mesh Processing** book
 
 ## Algorithm 1: Dijkstra's Algorithm in Mesh
-
 
 ### Problem Description:
 
@@ -209,3 +210,43 @@ Given a triangulated surface homeomorphic to a disk, if the(u,v)coordinates at t
 ### Process:
 1. Read into a grid, identify the boundaries, place them in order on a polygon (bisected N bisected circles),
 2. The inner points are convex combinations in it's one-ring, N points with N equations
+3. 
+## Algorithm 6: A Local/Global Approach to Mesh Parameterization 
+https://www.cs.harvard.edu/~sjg/papers/arap.pdf#:~:text=We%20present%20a%20novel%20approach%20to%20parameterize%20a%20mesh%20with
+
+### Process:
+1. Init
+- 1.1 **Init parameterization**: Tutte's Embedding
+- 1.2 **localCooridnate**: for each face, compute local cooridnate:
+
+
+        #pragma omp parallel for
+        for (int i = 0; i < n_faces; ++i){
+            auto face = mesh->polyface(i);
+            auto normal = face->normal();
+            auto fv_iter = mesh->fv_iter(face);
+            auto v0 = (*fv_iter)->position();
+            ++fv_iter;
+            auto v1 = (*fv_iter)->position();
+            ++fv_iter;
+            auto v2 = (*fv_iter)->position();
+
+            MVector3 e1 = v1 - v0;
+            MVector3 e2 = v2 - v0;
+            MVector3 x_ = e1.normalized();
+            MVector3 y_ = cross(x_, normal);
+            localCoord.row(i) <<    0, 0,                       
+                                    e1.norm(), 0,
+                                    dot(e2, x_), dot(e2, y_);
+            /*  face_0: (edge0_x, edge0_y, edge1_x, edge1_y, ...  )
+                face_1: (edge0_x, edge0_y, edge1_x, edge1_y, ...  )
+                ...
+                face_n */
+          }
+
+                    
+2. Optimatize L_t step: 
+- 2.1 Fixing uv also fixes J(uv), finding the optimal approximation in the function space(rotation transformation space)
+3. Optimatize J(uv) step: 
+- 3.1  Fixing targeted L_t computed from 2, find the optimal approximation UV to appoximate such rigid transformation.
+- 3.2  if get UV, LocalCoordinate: we deduce the map 's J(uv) (map: localcooridnate to uv)
